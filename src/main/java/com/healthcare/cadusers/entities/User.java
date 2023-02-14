@@ -1,18 +1,13 @@
 package com.healthcare.cadusers.entities;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Type;
-import org.hibernate.type.descriptor.jdbc.NVarcharJdbcType;
 
-@Entity(name = "clients")
-public class Client {
+@Entity(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idclient;
-
-    @Column(length = 150)
-    private String nconvenio;
+    private Integer iduser;
     @Column
     private String name;
     @Column
@@ -24,33 +19,23 @@ public class Client {
     @Column(columnDefinition = "TIMESTAMP")
     private String insert_timestamp;
 
-
-    public Client() {
+    public User(){
 
     }
 
-    public Client(String nconvenio, String name, String email, String cpf, String status) {
-        this.nconvenio = nconvenio;
+    public User(String name, String email, String cpf, String status) {
         this.name = name;
         this.email = email;
         this.cpf = cpf;
         this.status = status;
     }
 
-    public Integer getIdclient() {
-        return idclient;
+    public Integer getIduser() {
+        return iduser;
     }
 
-    public void setIdclient(Integer idclient) {
-        this.idclient = idclient;
-    }
-
-    public String getNconvenio() {
-        return nconvenio;
-    }
-
-    public void setNconvenio(String nconvenio) {
-        this.nconvenio = nconvenio;
+    public void setIduser(Integer iduser) {
+        this.iduser = iduser;
     }
 
     public String getName() {
@@ -88,5 +73,4 @@ public class Client {
     public String getInsert_timestamp() {
         return insert_timestamp;
     }
-
 }
