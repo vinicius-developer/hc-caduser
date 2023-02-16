@@ -8,13 +8,13 @@ public class MedicineSpeciality {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idspeciality;
     @Column(length = 100)
-    private String speciality_desc;
+    private String specialityDesc;
 
     public MedicineSpeciality() {
     }
 
-    public MedicineSpeciality(String speciality_desc) {
-        this.speciality_desc = speciality_desc;
+    public MedicineSpeciality(String specialityDesc) {
+        this.specialityDesc = specialityDesc;
     }
 
     public Integer getIdspeciality() {
@@ -25,11 +25,11 @@ public class MedicineSpeciality {
         this.idspeciality = idspeciality;
     }
 
-    public String getSpeciality_desc() {
-        return speciality_desc;
+    public String getSpecialityDesc() {
+        return specialityDesc;
     }
 
-    public void setSpeciality_desc(String speciality_desc) {
-        this.speciality_desc = speciality_desc;
+    public void setSpecialityDesc(String specialityDesc) {
+        this.specialityDesc = specialityDesc;
     }
 }

@@ -16,8 +16,8 @@ public class User {
     private String cpf;
     @Column(columnDefinition = "CHAR default 'T'", length = 1, nullable = false)
     private String status;
-    @Column(columnDefinition = "TIMESTAMP")
-    private String insert_timestamp;
+    @Column(columnDefinition="TIMESTAMP default CURRENT_TIMESTAMP", name = "insert_timestamp")
+    private String insertTimestamp;
 
     public User(){
 
@@ -70,7 +70,7 @@ public class User {
         this.status = status;
     }
 
-    public String getInsert_timestamp() {
-        return insert_timestamp;
+    public String getInsertTimestamp() {
+        return insertTimestamp;
     }
 }

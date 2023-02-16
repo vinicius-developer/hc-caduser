@@ -4,9 +4,10 @@ import jakarta.persistence.*;
 
 @Entity(name = "clinics_speciality_relationship")
 public class ClinicSpeciality {
+    @Column(name = "idclinic_speciality")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idclinic_speciality;
+    private Integer idclinicSpeciality;
     @ManyToOne
     @JoinColumn(name = "idclinic", referencedColumnName = "idclinic")
     private Clinic clinic;
@@ -17,18 +18,18 @@ public class ClinicSpeciality {
     public ClinicSpeciality() {
     }
 
-    public ClinicSpeciality(Integer idclinic_speciality, Clinic clinic, MedicineSpeciality medicineSpeciality) {
-        this.idclinic_speciality = idclinic_speciality;
+    public ClinicSpeciality(Integer idclinicSpeciality, Clinic clinic, MedicineSpeciality medicineSpeciality) {
+        this.idclinicSpeciality = idclinicSpeciality;
         this.clinic = clinic;
         this.medicineSpeciality = medicineSpeciality;
     }
 
-    public Integer getIdclinic_speciality() {
-        return idclinic_speciality;
+    public Integer getIdclinicSpeciality() {
+        return idclinicSpeciality;
     }
 
-    public void setIdclinic_speciality(Integer idclinic_speciality) {
-        this.idclinic_speciality = idclinic_speciality;
+    public void setIdclinicSpeciality(Integer idclinicSpeciality) {
+        this.idclinicSpeciality = idclinicSpeciality;
     }
 
     public Clinic getClinic() {
