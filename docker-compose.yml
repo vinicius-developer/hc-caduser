@@ -22,7 +22,7 @@ services:
       - "5433:5432"
     user: postgres
     environment:
-      POSTGRES_HOST: localhost
+      POSTGRES_HOST: postgresqldb
       POSTGRES_DB: healthcare
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
