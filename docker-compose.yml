@@ -42,13 +42,17 @@ services:
           SONAR_JDBC_URL: jdbc:postgresql://dbsonarqube:5432/sonar
           SONAR_JDBC_USERNAME: postgres
           SONAR_JDBC_PASSWORD: postgres
-          name: app-volume
       volumes:
-        - /c/DockerVolumes/sonarqube/data/:/opt/SonarQube/data
-        - /c/DockerVolumes/sonarqube/extensions/:/opt/SonarQube/extensions
-        - /c/DockerVolumes/sonarqube/logs/:/opt/SonarQube/logs
+        - sonarqube_data:/opt/SonarQube/data
+        - sonarqube_extensions:/opt/SonarQube/extensions
+        - sonarqube_logs:/opt/SonarQube/logs
       ports:
         - "9000:9000"
+      ulimits:
+        nproc: 131072
+        nofile:
+          soft: 8192
+          hard: 131072
   dbsonarqube:
       container_name: dbsonarqube
       image: postgres
@@ -67,5 +71,7 @@ services:
         retries: 2
       volumes:
         - /c/DockerVolumes/sonarqube/db/:/var/lib/postgresql
-
-
+volumes:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_logs:

@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class ValidateServices {
 
     public boolean checkEmail(String email){
-        String regexEmail = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+        String regexEmail = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
         return Pattern.matches(regexEmail, email);
     }
 
