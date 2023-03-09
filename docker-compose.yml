@@ -17,7 +17,7 @@ services:
       POSTGRES_PORT: 5432
   postgresqldb:
     container_name: postgresqldb
-    image: postgres
+    image: postgres:15-alpine3.17
     ports:
       - "5433:5432"
     user: postgres
@@ -32,7 +32,7 @@ services:
       timeout: 5s
       retries: 2
     volumes:
-      - /c/DockerVolumes/postgresql/:/var/lib/postgresql
+      - postgresqldb_data:/var/lib/postgresql/data
   sonarqube:
       image: sonarqube:community
       depends_on:
@@ -66,8 +66,10 @@ services:
         timeout: 5s
         retries: 2
       volumes:
-        - /c/DockerVolumes/sonarqube/db/:/var/lib/postgresql
+        - dbsonarqube_data:/var/lib/postgresql/data
 volumes:
   sonarqube_data:
   sonarqube_extensions:
   sonarqube_logs:
+  postgresqldb_data:
+  dbsonarqube_data:
