@@ -25,8 +25,9 @@ public class UserServices {
         Map<String, String> checkUser = validateUser(user);
         Credential credential = userForm.getCredential();
         Map<String, String> checkCredential = validateCredential(credential);
-
-
+        Map<String, String> ret = new HashMap<>();
+        ret.putAll(checkUser);
+        ret.putAll(checkCredential);
         return ret;
     }
 
@@ -44,7 +45,16 @@ public class UserServices {
     }
 
     private Map<String, String> validateCredential(Credential credential){
-        boolean loginCheck = validateServices.checkLogin(credential.getLogin());
+        Map<String, String> ret = new HashMap<>();
+        boolean usernameCheck = validateServices.checkUsername(credential.getLogin());
+        if (!usernameCheck)
+            ret.put("login", "Login is invalid");
+
+        boolean passwordCheck = validateServices.checkPassword(credential.getPassword());
+        if (!passwordCheck)
+            ret.put("password", "Password is invalid");
+
+        return ret;
     }
 
 

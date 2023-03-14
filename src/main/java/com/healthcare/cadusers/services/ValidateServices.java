@@ -1,5 +1,6 @@
 package com.healthcare.cadusers.services;
 
+import com.healthcare.cadusers.entities.User;
 import org.springframework.stereotype.Component;
 
 import java.util.regex.Pattern;
@@ -11,10 +12,6 @@ public class ValidateServices {
         String regexEmail = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
         return Pattern.matches(regexEmail, email);
     }
-    public boolean checkLogin(String login){
-        String regexLogin = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
-        return Pattern.matches(regexLogin, login);
-    }
 
     public boolean checkCPF(String cpf) {
         cpf = cpf.replaceAll("\\D+", "");
@@ -22,5 +19,13 @@ public class ValidateServices {
         return Pattern.matches(regexCPF, cpf);
     }
 
+    public boolean checkPassword(String password){
+        String regexPassword = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
+        return Pattern.matches(regexPassword, password);
+    }
 
+    public boolean checkUsername(String login) {
+        String regexLogin = "^[a-zA-Z0-9_-]{3,20}$";
+        return Pattern.matches(regexLogin, login);
+    }
 }
