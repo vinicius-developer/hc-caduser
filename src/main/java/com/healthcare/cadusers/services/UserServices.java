@@ -15,12 +15,24 @@ import java.util.Map;
 @Component
 public class UserServices {
 
+    /**
+        Mano tira o @Component nessa classe 
+        fica mais fácil de testar e é melhor 
+        pq os erros do springboot são um saco de resolver
+        
+        Aí é só instaciar ela como um objeto normal
+    **/
     @Autowired
     ValidateServices validateServices;
     @Autowired
     UserRepository userRepository;
 
     public Map<String, String> saveOperator(UserForm userForm){
+        /**
+            Cria um Enum para o último parâmetro
+            
+            E cria um construtor que recebe um objeto
+        **/
         User user = new User(userForm.getName(), userForm.getEmail(), userForm.getCpf(), "T");
         Map<String, String> checkUser = validateUser(user);
         Credential credential = userForm.getCredential();
