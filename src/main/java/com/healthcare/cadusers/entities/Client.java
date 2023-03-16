@@ -1,8 +1,14 @@
 package com.healthcare.cadusers.entities;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Type;
-import org.hibernate.type.descriptor.jdbc.NVarcharJdbcType;
+
+/**
+ * Nessas classe tem como utilizar lombok
+ *
+ * é tipo uma lib que faz com que nós precisemos escrever
+ *
+ * getters, setters e construtores
+ */
 
 @Entity(name = "clients")
 public class Client {
